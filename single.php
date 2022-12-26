@@ -15,8 +15,8 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
 // ici on mettra toute la logique du code
 
 $post = PostManager::getPostById($id);
-$comment = CommentManager::getCommentById($id);
-$user = CommentManager::getCommentUserById($id);
+$comment = CommentManager::getCommentByPostId($id);
+$user = CommentManager::getCommentAuthorByCommentId($id);
 
 // requerir le fichier de vue
 require_once 'views/singleView.php';

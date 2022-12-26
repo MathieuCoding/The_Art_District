@@ -17,28 +17,26 @@ class CommentManager
         return $comments;
     }
 
-    public static function getCommentById($id)
+    public static function getCommentByPostId($id)
     {
         $dbh = dbconnect();
-        $query = 'SELECT * FROM comment AS C
-                  JOIN post AS P
-                  ON C.id_post = P.id_post
-                  WHERE C.id_post = P.id_post';
+        $query = 'SELECT * FROM comment 
+                  WHERE id_post = :id';
         $stmt = $dbh->prepare($query);
-        // $stmt->bindParam(':id', $id);
+        $stmt->bindParam(':id', $id);
         $stmt->execute();
         $stmt->setFetchMode(PDO::FETCH_CLASS, 'Comment');
         $comment = $stmt->fetch();
         return $comment;
     }
 
-    public static function getCommentUserById($id)
+    public static function getCommentAuthorByCommentId($id)
     {
         $dbh = dbconnect();
-        $query = 'SELECT * FROM comment AS C 
-                  JOIN user AS U
-                  ON C.id_user = U.id_user
-                  WHERE id_comment = :id';
+        $query = 'SELECT * FROM User AS U 
+                  JOIN comment AS C
+                  ON U.id_user = C.id_user
+                  WHERE id_post = :id';
         $stmt = $dbh->prepare($query);
         $stmt->bindParam(':id', $id);
         $stmt->execute();
