@@ -1,20 +1,27 @@
-html, body {
-    height: 100%;
+/* Index Carousel */
+
+  #carouselExampleAutoplaying {
+    width: 100%;
+    margin: 20px;
   }
-  
-  #wrap {
-    min-height: 100%;
+
+  .carousel-item img{
+    width: auto;
+    height: 50vh;
+    margin: 0 auto;
   }
-  
-  #main {
-    overflow:auto;
-    padding-bottom:150px; /* this needs to be bigger than footer height*/
-  }
-  
-  .footer {
-    position: relative;
-    margin-top: -150px; /* negative value of footer height */
-    height: 150px;
-    clear:both;
-    padding-top:20px;
-  } 
+
+/*, .carousel-indicators */ 
+  .carousel-control-next, .carousel-control-prev {
+    filter: invert(100%);
+}
+
+
+
+/* Single view */
+
+.card-img-top {
+  height: 50vh;
+  width: auto;
+  margin: 20px auto;
+}

@@ -7,7 +7,7 @@ require_once 'partials/header.php';
 
     <!-- Here comes the article photo and content -->
     <div class="card mb-3">
-      <img src="<?= $post->getPicture() ?>" class="card-img-top" alt="...">
+      <img src="<?= $post->getPicture() ?>" class="card-img-top" alt="hero image">
       <div class="card-body">
         <h5 class="card-title text-center"><?= $post->getTitle() ?></h5>
         <p class="card-text"><?= $post->getContent() ?></p>

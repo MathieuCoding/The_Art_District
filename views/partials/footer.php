@@ -3,7 +3,7 @@
     </body>
     <section class="footer">
         <!-- Footer -->
-        <footer class="text-center text-white mt-5" style="background-color: #0a4275;">
+        <footer class="text-center text-white mt-5" style="background-color: #212529;">
             <!-- Grid container -->
             <div class="container p-4 pb-0">
                 <!-- Section: CTA -->
