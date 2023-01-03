@@ -1,7 +1,7 @@
 <?php
 
-require_once 'C:\laragon\www\EXODWWM\TP_blog\model\DBConnect.php';
-require_once 'C:\laragon\www\EXODWWM\TP_blog\model\classes\Post.php';
+require_once 'model/DBConnect.php';
+require_once 'model/classes/Post.php';
 
 
 class PostManager

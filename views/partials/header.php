@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="css\style.css">
 
 </head>
-<header class="p-3 text-bg-dark">
+<header class="p-3 text-bg-dark fixed-top">
     <div class="container">
         <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
             <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
@@ -36,7 +36,7 @@
                         ?>
                     </ul>
                 </li>       
-                <li><a href="#" class="nav-link px-2 text-white">Nouvel article</a></li>
+                <li><a href="#" class="nav-link px-2 text-white">New article</a></li>
             </ul>
 
             <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
@@ -44,11 +44,12 @@
             </form>
 
             <div class="text-end">
-                <a href="../TP_blog/views/loginView.php"><button type="button" class="btn btn-outline-light me-2">Login</button></a>
-                <a href="../TP_blog/views/signinView.php"><button type="button" class="btn btn-warning">Sign-up</button></a>
+                <a href="../TP_blog/login.php"><button type="button" class="btn btn-outline-light me-2">Login</button></a>
+                <a href="../TP_blog/signin.php"><button type="button" class="btn btn-warning">Sign-up</button></a>
             </div>
         </div>
     </div>
 </header>
 
-<body>
+<body style='background:url("images/bg_cinema2.jpg") no-repeat center center fixed; background-size: cover; margin-top: 100px;'>
+

@@ -1,5 +1,5 @@
 <?php
-require_once './partials/header.php';
+require_once 'partials/header.php';
 ?>
 
 <form action="" method="post" class="col-md-6 offset-md-3">
@@ -25,5 +25,5 @@ require_once './partials/header.php';
 
 
 <?php
-require_once './partials/footer.php';
+require_once 'partials/footer.php';
 ?>

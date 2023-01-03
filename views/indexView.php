@@ -5,8 +5,6 @@ require_once 'partials/header.php';
 
 <!-- Carousel -->
 
-
-
         <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
@@ -34,13 +32,13 @@ require_once 'partials/header.php';
 <!-- Here comes the cards -->
 
 <div class="container px-4 py-5" id="custom-cards">
-    <h2 class="pb-2 border-bottom">The best articles</h2>
+    <h2 class="pb-2 border-bottom text-white">Last articles</h2>
 
     <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
 
         <?php foreach ($posts as $post) { ?>
 
-            <div class="col">
+            <div class="col ">
                 <a href="single.php?id= <?= $post->getId_post() ?>" class="text-decoration-none">
                     <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style='background: url(<?= str_replace("\\", "/", $post->getPicture()) ?>) center ;'>
                         <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
@@ -53,7 +51,7 @@ require_once 'partials/header.php';
                                     <svg class="bi me-2" width="1em" height="1em">
                                         <use xlink:href="#geo-fill" />
                                     </svg>
-                                    <small>Pakistan</small>
+                                    <small>Lorem, ipsum.</small>
                                 </li>
                                 <li class="d-flex align-items-center">
                                     <svg class="bi me-2" width="1em" height="1em">

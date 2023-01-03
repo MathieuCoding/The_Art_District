@@ -1,21 +1,22 @@
 /* Index Carousel */
 
-  #carouselExampleAutoplaying {
+  /* #carouselExampleAutoplaying {
     width: 100%;
-    margin: 20px;
-  }
+    margin: 0px;
+  } */
 
   .carousel-item img{
     width: auto;
     height: 50vh;
-    margin: 0 auto;
+    margin: 20px auto 0;
+
   }
 
 /*, .carousel-indicators */ 
-  .carousel-control-next, .carousel-control-prev {
+   /* .carousel-control-next, .carousel-control-prev {
     filter: invert(100%);
-}
-
+} */
+ 
 
 /* Single view */
 
@@ -23,4 +24,4 @@
   height: 50vh;
   width: auto;
   margin: 20px auto;
-}
+} 

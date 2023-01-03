@@ -1,8 +1,8 @@
 <?php
 
-require_once './model/DBConnect.php';
-require_once './model/classes/Comment.php';
-require_once './model/classes/User.php';
+require_once 'model/DBConnect.php';
+require_once 'model/classes/Comment.php';
+require_once 'model/classes/User.php';
 
 
 class CommentManager 

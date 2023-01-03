@@ -1,12 +1,12 @@
 <?php
-require_once 'views/partials/header.php';
+require_once 'partials/header.php';
 ?>
 
 <!-- Here comes the cards -->
 
 <div class="container px-4 py-5" id="custom-cards">
 
-    <h2 class="pb-2 border-bottom">The <?=$categoryInfos->getCategory_name()?> articles</h2>
+    <h2 class="pb-2 border-bottom text-white">The <?=$categoryInfos->getCategory_name()?> articles</h2>
 
     <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
 
@@ -47,7 +47,7 @@ require_once 'views/partials/header.php';
 
 
 <?php
-require_once 'views/partials/footer.php';
+require_once 'partials/footer.php';
 ?>
 
 

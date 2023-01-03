@@ -11,8 +11,9 @@ require_once 'partials/header.php';
       <div class="card-body">
         <h5 class="card-title text-center"><?= $post->getTitle() ?></h5>
         <p class="card-text"><?= $post->getContent() ?></p>
-        <p class="card-text text-end"><small class="text-muted">Created the <?= $post->getDate() ?></small></p>
-        <a href="index.php"><input type="button" class="btn btn-secondary" value="Retour" /></a>
+        <p class="card-text text-end"><small class="text-muted">Created by <a href="#"><?= $author->getPseudo() ?></a> the <?= $post->getDate() ?></small></p>
+        <a href="index.php"><input type="button" class="btn btn-secondary float-end me-3" value="Back" /></a>
+        <a href="#"><input type="button" class="btn btn-primary float-end me-3" value="Add Comment" /></a>
       </div>
     </div>
 
