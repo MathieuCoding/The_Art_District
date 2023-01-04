@@ -27,9 +27,25 @@ class UserManager
         $stmt->execute();
     }
 
-    public static function connectUser()
+    public static function getUserByEmail($email)
     {
-        
+        $dbh = dbconnect();
+        $query = "SELECT * FROM user WHERE user.email = :email";
+        $stmt = $dbh->prepare($query);
+        $stmt->bindParam(':email', $email);
+        $stmt->execute();
+        $stmt->setFetchMode(PDO::FETCH_CLASS, 'User');
+        $user = $stmt->fetch();
+        return $user;
+    }
+
+    public static function connectUser($user)
+    {
+        session_start();
+        $_SESSION['user'] = [
+            'id' => $user->getId_user(),
+            'pseudo' => $user->getPseudo(),
+        ];
     }
 
     public static function getAuthorByPostId($id)

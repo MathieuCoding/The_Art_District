@@ -11,7 +11,7 @@
 
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <link rel="stylesheet" href="css\style.css">
+    <link rel="stylesheet" type ="text/css" href="css\custom.css">
 
 </head>
 <header class="p-3 text-bg-dark fixed-top">
@@ -36,7 +36,9 @@
                         ?>
                     </ul>
                 </li>       
-                <li><a href="#" class="nav-link px-2 text-white">New article</a></li>
+                <?php if (isset($_SESSION['user']) && !empty(['user'])){ ?>
+                <li><a href="addPost.php" class="nav-link px-2 text-white">New article</a></li>
+                <?php } ?>
             </ul>
 
             <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
@@ -44,12 +46,16 @@
             </form>
 
             <div class="text-end">
-                <a href="../TP_blog/login.php"><button type="button" class="btn btn-outline-light me-2">Login</button></a>
-                <a href="../TP_blog/signin.php"><button type="button" class="btn btn-warning">Sign-up</button></a>
+                <?php if (isset($_SESSION['user']) && !empty(['user'])){ ?>
+                    <a href="logout.php"><button type="button" class="btn btn-outline-light me-2">Logout</button></a>
+                <?php } else { ?>
+                    <a href="login.php"><button type="button" class="btn btn-outline-light me-2">Login</button></a>
+                    <a href="signup.php"><button type="button" class="btn btn-warning">Sign-up</button></a>
+                <?php } ?>
             </div>
         </div>
     </div>
 </header>
 
 <body style='background:url("images/bg_cinema2.jpg") no-repeat center center fixed; background-size: cover; margin-top: 100px;'>
-
+<div class="allButFooter">

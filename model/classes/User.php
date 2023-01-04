@@ -5,7 +5,7 @@ class User
     private $id_user;
     private $pseudo;
     private $email;
-    private $password;
+    private $userPassword;
 
     
 
@@ -60,9 +60,9 @@ class User
     /**
      * Get the value of password
      */ 
-    public function getPassword()
+    public function getUserPassword()
     {
-        return $this->password;
+        return $this->userPassword;
     }
 
     /**
@@ -70,9 +70,9 @@ class User
      *
      * @return  self
      */ 
-    public function setPassword(string $password): self
+    public function setUserPassword(string $userPassword): self
     {
-        $this->password = $password;
+        $this->userPassword = $userPassword;
 
         return $this;
     }

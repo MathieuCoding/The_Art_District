@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 require_once 'model/managers/UserManager.php';
 require_once 'model/managers/CategoryManager.php';
 
@@ -19,6 +19,6 @@ if (isset($_POST) && !empty($_POST))
 $categories = CategoryManager::getAllCategories();
 
 // requerir le fichier de vue
-require_once 'views/signinView.php';
+require_once 'views/signupView.php';
 
 

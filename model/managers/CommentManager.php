@@ -17,7 +17,19 @@ class CommentManager
         return $comments;
     }
 
-    public static function getCommentByPostId($id)
+    // public static function getCommentByPostId($id)
+    // {
+    //     $dbh = dbconnect();
+    //     $query = 'SELECT * FROM comment 
+    //               WHERE id_post = :id';
+    //     $stmt = $dbh->prepare($query);
+    //     $stmt->bindParam(':id', $id);
+    //     $stmt->execute();
+    //     $stmt->setFetchMode(PDO::FETCH_CLASS, 'Comment');
+    //     $comment = $stmt->fetch();
+    //     return $comment;
+    // }
+    public static function getCommentsByPostId($id)
     {
         $dbh = dbconnect();
         $query = 'SELECT * FROM comment 
@@ -25,9 +37,8 @@ class CommentManager
         $stmt = $dbh->prepare($query);
         $stmt->bindParam(':id', $id);
         $stmt->execute();
-        $stmt->setFetchMode(PDO::FETCH_CLASS, 'Comment');
-        $comment = $stmt->fetch();
-        return $comment;
+        $comments = $stmt->fetchAll(PDO::FETCH_CLASS, 'Comment');
+        return $comments;
     }
 
     public static function getCommentAuthorByCommentId($id)
@@ -36,12 +47,21 @@ class CommentManager
         $query = 'SELECT * FROM User AS U 
                   JOIN comment AS C
                   ON U.id_user = C.id_user
-                  WHERE id_post = :id';
+                  WHERE id_comment = :id';
         $stmt = $dbh->prepare($query);
         $stmt->bindParam(':id', $id);
         $stmt->execute();
         $stmt->setFetchMode(PDO::FETCH_CLASS, 'User');
         $user = $stmt->fetch();
         return $user;
+    }
+
+    public static function addComment()
+    {
+        $dbh = dbconnect();
+        $query = 'INSERT INTO comment (content) VALUES (:content);';
+        $stmt = $dbh->prepare($query);
+        $stmt->bindParam(':content', $content, PDO::PARAM_STR);
+        $stmt->execute();
     }
 }

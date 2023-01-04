@@ -2,6 +2,9 @@
 require_once 'partials/header.php';
 ?>
 
+<h1 class="text-center mt-5">S'inscrire</h1>
+
+
 <form action="" method="post" class="col-md-6 offset-md-3">
     <div class="min-vh-100">
         <div class="mb-3 mt-5">
@@ -17,7 +20,7 @@ require_once 'partials/header.php';
             <input type="password" class="form-control" id="InputPassword" name="pwd">
         </div>
         <button class="btn btn-primary" type="submit">S'enregistrer</button>
-        <a href="../"><input type="button" class="btn btn-danger" value="Annuler" /></a>
+        <a href="index.php"><input type="button" class="btn btn-danger" value="Annuler" /></a>
 
     </div>
 

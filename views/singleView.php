@@ -11,9 +11,9 @@ require_once 'partials/header.php';
       <div class="card-body">
         <h5 class="card-title text-center"><?= $post->getTitle() ?></h5>
         <p class="card-text"><?= $post->getContent() ?></p>
-        <p class="card-text text-end"><small class="text-muted">Created by <a href="#"><?= $author->getPseudo() ?></a> the <?= $post->getDate() ?></small></p>
+        <p class="card-text text-end"><small class="text-muted">Created by <a href="author.php?id= <?= $post->getId_user() ?>"><?= $author->getPseudo() ?></a> the <?= $post->getDate() ?></small></p>
         <a href="index.php"><input type="button" class="btn btn-secondary float-end me-3" value="Back" /></a>
-        <a href="#"><input type="button" class="btn btn-primary float-end me-3" value="Add Comment" /></a>
+        <a href="addComment.php"><input type="button" class="btn btn-primary float-end me-3" value="Add Comment" /></a>
       </div>
     </div>
 
@@ -27,17 +27,20 @@ require_once 'partials/header.php';
         <blockquote class="blockquote mb-0">
 
           <?php
-          if (isset($comment) && !empty($comment)) {
+          if (isset($commentsData) && !empty($commentsData)) {
+            foreach ($commentsData as $commentData) {
           ?>
 
-            <p><?= $comment->getContent() ?></p>
-            <footer class="blockquote-footer">Written by <cite title="Source Title"><?= $user->getPseudo() ?></cite>
-            </footer>
+              <p><?= $commentData['comment']->getContent() ?></p>
+              <footer class="blockquote-footer">Written by <cite title="Source Title"><?= $commentData['author']->getPseudo() ?></cite>
+              </footer>
         </blockquote>
+        <?php }
+          } ?>
       </div>
     </div>
 
-  <?php } ?>
+
 
   </div>
 </div>
