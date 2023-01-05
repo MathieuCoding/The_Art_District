@@ -3,7 +3,7 @@ require_once 'partials/header.php';
 ?>
 
 
-<h1 class="text-center mt-5 text-shadow">Add an article</h1>
+<h1 class="text-center mt-5 text-shadow">Modify your article</h1>
 
 <div class="container">
     <!-- Attribut pour pouvoir uploader des fichier enctype="multipart/form-data" -->

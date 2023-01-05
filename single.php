@@ -16,9 +16,9 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
 
 // ici on mettra toute la logique du code
 
-$post = PostManager::getPostById($id);
-$comments = CommentManager::getCommentsByPostId($id);
 
+
+$comments = CommentManager::getCommentsByPostId($id);
 $commentsData = [];
 foreach ($comments as $comment) {
     $commentAuthor = CommentManager::getCommentAuthorByCommentId($comment->getId_comment());
@@ -28,11 +28,25 @@ foreach ($comments as $comment) {
     ];
 }
 
-$user = CommentManager::getCommentAuthorByCommentId($id);
+// $user = CommentManager::getCommentAuthorByCommentId($id);
+$post = PostManager::getPostById($id);
 $author = UserManager::getAuthorByPostId($id);
 $categories = CategoryManager::getAllCategories();
+$postCategories = CategoryManager::getCategoriesByPostId($id);
 
 
+// Add comments 
+if (isset($_SESSION['user']))
+{
+    if (isset($_POST) && !empty($_POST))
+    {
+        $idPost = $_GET['id'];
+        $idUser = $_SESSION['user']['id'];
+        $content = $_POST['comment'];
+        $newCommentId = CommentManager::addComment($idPost, $idUser, $content);
+        header("Refresh:0");
+    }
+}
 // requerir le fichier de vue
 require_once 'views/singleView.php';
 

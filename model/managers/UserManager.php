@@ -39,6 +39,19 @@ class UserManager
         return $user;
     }
 
+    public static function getUserById($id)
+    {
+        $dbh = dbconnect();
+        $query = "SELECT * FROM user WHERE user.Id_user = :id";
+        $stmt = $dbh->prepare($query);
+        $stmt->bindParam(':id', $id);
+        $stmt->execute();
+        $stmt->setFetchMode(PDO::FETCH_CLASS, 'User');
+        $user = $stmt->fetch();
+        return $user;
+    }
+  
+    
     public static function connectUser($user)
     {
         session_start();
@@ -51,8 +64,8 @@ class UserManager
     public static function getAuthorByPostId($id)
     {
         $dbh = dbconnect();
-        $query = 'SELECT * FROM post 
-                  JOIN user ON post.id_user = user.id_user 
+        $query = 'SELECT * FROM user 
+                  JOIN post ON post.id_user = user.id_user 
                   WHERE post.id_post = :id';
         $stmt = $dbh->prepare($query);
         $stmt->bindParam(':id', $id);

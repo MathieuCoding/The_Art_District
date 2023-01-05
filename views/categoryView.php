@@ -14,24 +14,19 @@ require_once 'partials/header.php';
 
             <div class="col">
                 <a href="../TP_blog/single.php?id= <?= $post->getId_post() ?>" class="text-decoration-none">
-                    <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style='background: url(<?= str_replace("\\", "/", $post->getPicture()) ?>) center ;'>
-                        <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+                    <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style='background: url(<?= "images/" . $post->getPicture() ?>) center ; background-size:cover;'>
+                        <div class="d-flex flex-column h-100 p-5 pb-3 text-shadow-dark white-color">
                             <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold"><?= $post->getTitle() ?></h3>
                             <ul class="d-flex list-unstyled mt-auto">
                                 <li class="me-auto">
                                     <img src="images\pngegg.png" alt="Pellicule de film" width="32" height="32" class="rounded-circle border border-white">
                                 </li>
-                                <li class="d-flex align-items-center me-3">
-                                    <svg class="bi me-2" width="1em" height="1em">
-                                        <use xlink:href="#geo-fill" />
-                                    </svg>
-                                    <small>Pakistan</small>
-                                </li>
+                            
                                 <li class="d-flex align-items-center">
                                     <svg class="bi me-2" width="1em" height="1em">
                                         <use xlink:href="#calendar3" />
                                     </svg>
-                                    <small><?= $post->getDate() ?></small>
+                                    <small><?= date("j M Y", strtotime($post->getDate())); ?></small>
                                 </li>
                             </ul>
                         </div>

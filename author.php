@@ -10,7 +10,8 @@ if(isset($_GET['id']) && !empty($_GET['id']))
 {
     $id = $_GET['id'];
     $userPosts = PostManager::getPostsByUserId($id);
-    $userInfos = UserManager::getAuthorByPostId($id);
+    $userInfos = UserManager::getUserById($id);
+
 }
 
 $categories = CategoryManager::getAllCategories();

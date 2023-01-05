@@ -57,5 +57,5 @@
     </div>
 </header>
 
-<body style='background:url("images/bg_cinema2.jpg") no-repeat center center fixed; background-size: cover; margin-top: 100px;'>
+<body style='background:url("images/output-onlinepngtools.png") no-repeat center center fixed; background-size: cover; margin-top: 100px;'>
 <div class="allButFooter">

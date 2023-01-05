@@ -5,7 +5,7 @@ require_once 'partials/header.php';
 
 <!-- Carousel -->
 
-        <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+<!-- <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
                     <img src="images\pexels-jacob-colvin-1761282.jpg" class="d-block w-25 img-fluid" alt="...">
@@ -25,7 +25,7 @@ require_once 'partials/header.php';
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Next</span>
             </button>
-        </div>
+        </div> -->
 
 
 
@@ -40,24 +40,19 @@ require_once 'partials/header.php';
 
             <div class="col ">
                 <a href="single.php?id= <?= $post->getId_post() ?>" class="text-decoration-none">
-                    <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style='background: url(<?= str_replace("\\", "/", $post->getPicture()) ?>) center ;'>
-                        <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
-                            <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold text-dark text-shadow"><?= $post->getTitle() ?></h3>
+                    <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style='background: url(<?= "images/" . $post->getPicture() ?>) center; background-size:cover; '>
+                        <div class="d-flex flex-column h-100 p-5 pb-3 text-shadow-dark white-color">
+                            <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold"><?= $post->getTitle() ?></h3>
                             <ul class="d-flex list-unstyled mt-auto">
                                 <li class="me-auto">
                                     <img src="images\pngegg.png" alt="Pellicule de film" width="32" height="32" class="rounded-circle border border-white">
-                                </li>
-                                <li class="d-flex align-items-center me-3">
-                                    <svg class="bi me-2" width="1em" height="1em">
-                                        <use xlink:href="#geo-fill" />
-                                    </svg>
-                                    <small>Lorem, ipsum.</small>
                                 </li>
                                 <li class="d-flex align-items-center">
                                     <svg class="bi me-2" width="1em" height="1em">
                                         <use xlink:href="#calendar3" />
                                     </svg>
-                                    <small><?= $post->getDate() ?></small>
+                                    
+                                    <small><?= date("j M Y", strtotime($post->getDate())); ?></small>
                                 </li>
                             </ul>
                         </div>

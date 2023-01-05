@@ -3,9 +3,6 @@
 require_once 'model/DBConnect.php';
 require_once 'model/classes/Category.php';
 
-// require_once '../TP_blog/model/DBConnect.php';
-// require_once '../TP_blog/model/classes/Category.php';
-// require_once '../TP_blog/model/classes/Post.php';
 
 class CategoryManager {
 

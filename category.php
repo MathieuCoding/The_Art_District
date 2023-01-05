@@ -11,7 +11,10 @@ if(isset($_GET['id']) && !empty($_GET['id']))
     $categoryInfos = CategoryManager::getCategoryInfos($id);
     $categoryPosts = PostManager::getPostsByCategoryId($id);
 }
+
 $categories = CategoryManager::getAllCategories();
+
+
 
 
 
