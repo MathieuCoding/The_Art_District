@@ -10,7 +10,7 @@ require_once 'partials/header.php';
     <form action="" method="post" enctype="multipart/form-data">
         <div class="mb-3">
             <label for="InputTitle" class="form-label text-larger text-shadow">Title</label>
-            <input type="text" class="form-control" id="InputTitle" name="title">
+            <input type="text" class="form-control" id="InputTitle" name="title" value="<?= $post->getTitle() ?>">
         </div>
         <div class="mb-3">
             <label for="InputPicture" class="form-label text-larger text-shadow">Picture</label>
@@ -18,20 +18,32 @@ require_once 'partials/header.php';
         </div>
         <div class="mb-3">
             <label for="InputContent" class="form-label text-larger text-shadow">Content</label>
-            <textarea class="form-control" id="InputContent" name="content"></textarea>
+            <textarea class="form-control" id="InputContent" name="content"><?= $post->getContent() ?></textarea>
         </div>
 
-        <?php foreach ($categories as $category) { ?>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" value="<?= $category->getId_category() ?>" name="categories[]" id="<?= $category->getCategory_Name() ?>">
-                <label class="form-check-label text-larger text-shadow" for="<?= $category->getCategory_Name() ?>">
-                    <?= $category->getCategory_Name() ?>
-                </label>
-            </div>
-        <?php } ?>
+        <?php foreach ($categories as $category) {  ?>
+
+
+            <?php
+            if (in_array($category, $postCategories)) { ?>
+
+                <div class="form-check form-check-inline">
+                    <input class="form-check-inline" checked type="checkbox" value="<?= $category->getId_category() ?>" name="categories[]" id="<?= $category->getCategory_Name() ?>">
+                    <label class=" text-larger text-shadow" for="<?= $category->getCategory_Name() ?>"><?= $category->getCategory_Name() ?></label>
+                </div> 
+            <?php } else { ?>
+                <div class="form-check form-check-inline">
+                    <input class="" type="checkbox" value="<?= $category->getId_category() ?>" name="categories[]" id="<?= $category->getCategory_Name() ?>">
+                    <label class=" text-larger text-shadow" for="<?= $category->getCategory_Name() ?>">
+                        <?= $category->getCategory_Name() ?>
+                    </label>
+
+                </div>
+        <?php }
+        } ?>
         <div class="buttons">
-            <button class="btn btn-primary float-end me-3 mt-3" type="submit">Post article</button>
             <a href="index.php"><input type="button" class="btn btn-secondary float-end me-3 mt-3" value="Back" /></a>
+            <button class="btn btn-primary float-end me-3 mt-3" type="submit">Update</button>
         </div>
     </form>
 </div>

@@ -74,11 +74,32 @@ class PostManager
         $stmt->execute();
     }
 
-    public static function editPost() {
-        //à construire
+
+    public static function editPost($id_post, $title, $content, $picture) 
+    {
+        $dbh = dbconnect();
+        $date = (new DateTime())->format('Y-m-d H:i:s');
+        $query = "UPDATE post SET title = :title, date = '$date', content = :content, picture = :picture WHERE id_post = $id_post;";
+        $stmt = $dbh->prepare($query);
+        $stmt->bindParam(':title', $title, PDO::PARAM_STR);
+        $stmt->bindParam(':content', $content, PDO::PARAM_STR);
+        $stmt->bindParam(':picture', $picture, PDO::PARAM_STR);
+        $stmt->execute();
+        return $dbh->lastInsertId();
     }
 
-    public static function deletePost() {
-        //à construire
+
+    public static function deletePostCategoriesByPostId($id_post)
+    {
+        $dbh = dbconnect();
+        $query = "DELETE FROM post_category WHERE id_post = :id_post";
+        $stmt = $dbh->prepare($query);
+        $stmt->bindParam(':id_post', $id_post);
+        $stmt->execute();
+    }
+
+    public static function deletePost($id_post) 
+    {
+        
     }
 }

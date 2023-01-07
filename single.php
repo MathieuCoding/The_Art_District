@@ -40,9 +40,9 @@ if (isset($_SESSION['user']))
 {
     if (isset($_POST) && !empty($_POST))
     {
-        $idPost = $_GET['id'];
-        $idUser = $_SESSION['user']['id'];
-        $content = $_POST['comment'];
+        $idPost = htmlentities($_GET['id'], ENT_QUOTES);
+        $idUser = htmlentities($_SESSION['user']['id'], ENT_QUOTES);
+        $content = htmlentities($_POST['comment'], ENT_QUOTES);
         $newCommentId = CommentManager::addComment($idPost, $idUser, $content);
         header("Refresh:0");
     }

@@ -18,11 +18,11 @@ require_once 'partials/header.php';
           <p class="card-text"><?= $post->getContent() ?></p>
           <p class="card-text text-end"><small class="text-muted">Created by <a href="author.php?id= <?= $author->getId_user() ?>"><?= $author->getPseudo() ?></a> the <?= date("j M Y", strtotime($post->getDate())); ?></small></p>
           <a href="index.php"><input type="button" class="btn btn-secondary float-end me-3" value="Back" /></a>
-          <?php if (isset($_SESSION['user']) && !empty(['user'])) { ?>
+          <?php if (isset($_SESSION['user']) && !empty($_SESSION['user']) && $_SESSION['user']['id'] === $post->getId_user()) { ?>
             <a href="index.php"><input type="button" class="btn btn-danger float-end me-3" value="Delete" /></a>
-            <a href="updatePost.php"><input type="button" class="btn btn-primary float-end me-3" value="Modify" /></a>
-          <?php } ?>     
-          
+            <a href="updatePost.php?id= <?= $post->getId_post() ?>"><input type="button" class="btn btn-primary float-end me-3" value="Modify" /></a>
+          <?php } ?>
+
       </div>
     </div>
 
@@ -50,22 +50,24 @@ require_once 'partials/header.php';
     </div>
 
     <!--Comment adding section-->
-    <div class="card mt-3">
-      <div class="card-header">
-        <h4>Write a comment</h2>
-      </div>
-      <form action="" method="post" class="col-md-6 offset-md-3 mt-5">
-        <div class="min-vh-100">
-          <div class="mb-3">
-            <label for="InputComment" class="form-label text-larger">Your comment</label>
-            <textarea style="height:200px" type="text" class="form-control" id="InputComment" name="comment"></textarea>
-          </div>
-          <a href="index.php"><input type="button" class="btn btn-danger float-end me-2" value="Cancel" /></a>
-          <button class="btn btn-primary float-end me-2" type="submit">Add comment</button>
-        </div>
-      </form>
-    </div>
+    <?php if (isset($_SESSION['user']) && !empty($_SESSION['user'])) { ?>
 
+      <div class="card mt-3">
+        <div class="card-header">
+          <h4>Write a comment</h2>
+        </div>
+        <form action="" method="post" class="col-md-6 offset-md-3 mt-5">
+          <div class="min-vh-100">
+            <div class="mb-3">
+              <label for="InputComment" class="form-label text-larger">Your comment</label>
+              <textarea style="height:200px" type="text" class="form-control" id="InputComment" name="comment"></textarea>
+            </div>
+            <a href="index.php"><input type="button" class="btn btn-danger float-end me-2" value="Cancel" /></a>
+            <button class="btn btn-primary float-end me-2" type="submit">Add comment</button>
+          </div>
+        </form>
+      </div>
+    <?php } ?>
   </div>
 </div>
 

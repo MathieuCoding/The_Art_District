@@ -37,7 +37,6 @@ class CategoryManager {
         $categories = $stmt->fetchAll(PDO::FETCH_CLASS, 'Category');
         return $categories; 
     }
-
     
 
 }

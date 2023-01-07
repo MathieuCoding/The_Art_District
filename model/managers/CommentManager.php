@@ -68,4 +68,15 @@ class CommentManager
         $stmt->execute();
         return $dbh->lastInsertId();
     }
+
+    public static function deleteCommentbyPostId($id_post)
+    {
+        $dbh = dbconnect();
+        $query = 'DELETE FROM comment WHERE id_post = :id_post';
+        $stmt = $dbh->prepare($query);
+        $stmt->bindParam(':id_post', $id_post);
+        $stmt->execute();
+        //return $dbh->affectedRows();
+
+    }
 }
