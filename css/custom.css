@@ -64,6 +64,13 @@
   min-height: 70vh;
 }  */
 
-.allButFooter {
+.allButFooter 
+{
   min-height: calc(100vh - 295px);
+}
+
+
+#headerTitle 
+{
+  color: red;
 }

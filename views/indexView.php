@@ -39,7 +39,7 @@ require_once 'partials/header.php';
         <?php foreach ($posts as $post) { ?>
 
             <div class="col ">
-                <a href="single.php?id= <?= $post->getId_post() ?>" class="text-decoration-none">
+                <a href="single.php?id=<?= $post->getId_post() ?>" class="text-decoration-none">
                     <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style='background: url(<?= "images/" . $post->getPicture() ?>) center; background-size:cover; '>
                         <div class="d-flex flex-column h-100 p-5 pb-3 text-shadow-dark white-color">
                             <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold"><?= $post->getTitle() ?></h3>

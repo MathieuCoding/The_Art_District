@@ -33,7 +33,8 @@ class CommentManager
     {
         $dbh = dbconnect();
         $query = 'SELECT * FROM comment 
-                  WHERE id_post = :id';
+                  WHERE id_post = :id 
+                  ORDER BY date DESC';
         $stmt = $dbh->prepare($query);
         $stmt->bindParam(':id', $id);
         $stmt->execute();

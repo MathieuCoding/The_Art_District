@@ -12,15 +12,43 @@ require_once 'partials/header.php';
         <h1 class="card-title text-center mt-3"><?= $post->getTitle() ?></h4>
 
           <?php foreach ($postCategories as $postCategory) { ?>
-            <a href="category.php?id= <?= $postCategory->getId_category() ?>" class="badge badge-primary text-bg-primary mb-3"><?= $postCategory->getCategory_name() ?></a>
+            <a href="category.php?id=<?= $postCategory->getId_category() ?>" class="badge badge-primary text-bg-primary mb-3"><?= $postCategory->getCategory_name() ?></a>
           <?php } ?>
 
           <p class="card-text"><?= $post->getContent() ?></p>
           <p class="card-text text-end"><small class="text-muted">Created by <a href="author.php?id= <?= $author->getId_user() ?>"><?= $author->getPseudo() ?></a> the <?= date("j M Y", strtotime($post->getDate())); ?></small></p>
           <a href="index.php"><input type="button" class="btn btn-secondary float-end me-3" value="Back" /></a>
           <?php if (isset($_SESSION['user']) && !empty($_SESSION['user']) && $_SESSION['user']['id'] === $post->getId_user()) { ?>
-            <a href="index.php"><input type="button" class="btn btn-danger float-end me-3" value="Delete" /></a>
-            <a href="updatePost.php?id= <?= $post->getId_post() ?>"><input type="button" class="btn btn-primary float-end me-3" value="Modify" /></a>
+
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-danger float-end me-3" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">
+              Delete
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Delete article</h5>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    Are you sure you want to delete this article ?
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No, cancel</button>
+                    <a href="deletePost.php?id=<?= $post->getId_post() ?>""><button type="button" class="btn btn-danger">Yes, delete</button></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- <a href="index.php"><input type="button" class="btn btn-danger float-end me-3" value="Delete" /></a> -->
+     
+
+            <a href="updatePost.php?id=<?= $post->getId_post() ?>"><input type="button" class="btn btn-primary float-end me-3" value="Modify" /></a>
           <?php } ?>
 
       </div>
@@ -57,13 +85,12 @@ require_once 'partials/header.php';
           <h4>Write a comment</h2>
         </div>
         <form action="" method="post" class="col-md-6 offset-md-3 mt-5">
-          <div class="min-vh-100">
+          <div class="">
             <div class="mb-3">
               <label for="InputComment" class="form-label text-larger">Your comment</label>
               <textarea style="height:200px" type="text" class="form-control" id="InputComment" name="comment"></textarea>
             </div>
-            <a href="index.php"><input type="button" class="btn btn-danger float-end me-2" value="Cancel" /></a>
-            <button class="btn btn-primary float-end me-2" type="submit">Add comment</button>
+            <button class="btn btn-primary float-end me-2 mb-5" type="submit">Add comment</button>
           </div>
         </form>
       </div>

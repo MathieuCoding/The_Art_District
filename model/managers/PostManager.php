@@ -98,8 +98,12 @@ class PostManager
         $stmt->execute();
     }
 
-    public static function deletePost($id_post) 
+    public static function deletePostById($id_post) 
     {
-        
+        $dbh = dbconnect();
+        $query = "DELETE FROM post WHERE id_post = :id_post";
+        $stmt = $dbh->prepare($query);
+        $stmt->bindParam(':id_post', $id_post);
+        $stmt->execute();
     }
 }

@@ -28,7 +28,7 @@ if (isset($_SESSION['user'])) {
         /*$_POST['categories'] nous donne un tableau des catégories sélectionnées il suffit donc de boucler sur ce tableau et pour chaque ligne insérer dans la table de liaison l'id de l'article ($newPost) et l'id de la catégorie*/
         foreach ($postCategories as $cat) {
             PostManager::addPostCategories($newPostId, $cat);
-            //header('location:index.php');
+            header('location:index.php');
         }
     }
     
