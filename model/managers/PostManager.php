@@ -54,9 +54,10 @@ class PostManager
     public static function addPost($title, $picture, $content, $userId) {
         $dbh = dbconnect();
         $date = (new DateTime())->format('Y-m-d H:i:s');
-        $query = "INSERT INTO post (title, date, picture, content, id_user) VALUES (:title, '$date', :picture, :content, :id_user)";
+        $query = "INSERT INTO post (title, date, picture, content, id_user) VALUES (:title, :date, :picture, :content, :id_user)";
         $stmt = $dbh->prepare($query);
         $stmt->bindParam(':title', $title);
+        $stmt->bindParam(':date', $date);
         $stmt->bindParam(':picture', $picture);
         $stmt->bindParam(':content', $content);
         $stmt->bindParam(':id_user', $userId);
@@ -79,9 +80,10 @@ class PostManager
     {
         $dbh = dbconnect();
         $date = (new DateTime())->format('Y-m-d H:i:s');
-        $query = "UPDATE post SET title = :title, date = '$date', content = :content, picture = :picture WHERE id_post = $id_post;";
+        $query = "UPDATE post SET title = :title, date = :date, content = :content, picture = :picture WHERE id_post = $id_post;";
         $stmt = $dbh->prepare($query);
         $stmt->bindParam(':title', $title, PDO::PARAM_STR);
+        $stmt->bindParam(':date', $date, PDO::PARAM_STR);
         $stmt->bindParam(':content', $content, PDO::PARAM_STR);
         $stmt->bindParam(':picture', $picture, PDO::PARAM_STR);
         $stmt->execute();

@@ -60,9 +60,7 @@ require_once 'partials/header.php';
       <div class="card-header">
         <h4>Comments</h2>
       </div>
-      <div class="card-body">
-        <blockquote class="blockquote">
-
+      <div class="card-body" id="comments">
           <?php
           if (isset($commentsData) && !empty($commentsData)) {
             foreach ($commentsData as $commentData) {
@@ -71,7 +69,6 @@ require_once 'partials/header.php';
               <p><?= $commentData['comment']->getContent() ?></p>
               <footer class="blockquote-footer">Written by <cite title="Source Title"><?= $commentData['author']->getPseudo() ?></cite>
               </footer>
-        </blockquote>
     <?php }
           } ?>
       </div>
@@ -89,6 +86,7 @@ require_once 'partials/header.php';
             <div class="mb-3">
               <label for="InputComment" class="form-label text-larger">Your comment</label>
               <textarea style="height:200px" type="text" class="form-control" id="InputComment" name="comment"></textarea>
+              <input type="hidden" id="pseudo" value="<?= $_SESSION['user']['pseudo'] ?>">
             </div>
             <button class="btn btn-primary float-end me-2 mb-5" type="submit">Add comment</button>
           </div>

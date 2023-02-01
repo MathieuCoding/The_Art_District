@@ -44,7 +44,7 @@ if (isset($_SESSION['user']))
         $idUser = htmlentities($_SESSION['user']['id'], ENT_QUOTES);
         $content = htmlentities($_POST['comment'], ENT_QUOTES);
         $newCommentId = CommentManager::addComment($idPost, $idUser, $content);
-        header("Refresh:0");
+        // header("Refresh:0");
     }
 }
 // requerir le fichier de vue

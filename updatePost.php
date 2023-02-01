@@ -11,16 +11,9 @@ if (isset($_GET) && !empty($_GET)) {
     die();
 }
 
-
 $categories = CategoryManager::getAllCategories();
 $post = PostManager::getPostById($id);
 $postCategories = CategoryManager::getCategoriesByPostId($id);
-
-
-
-
-
-
 
 // Update post 
 if (isset($_SESSION['user'])) {
@@ -29,10 +22,8 @@ if (isset($_SESSION['user'])) {
         $idTitle = htmlentities($_POST['title'], ENT_QUOTES);
         $content = htmlentities($_POST['content'], ENT_QUOTES);
 
-        var_dump($_FILES);
-
         if (isset($_FILES['picture']['name']) && !empty($_FILES['picture']['name'])) {
-            var_dump($_FILES['picture']['name']);
+            //var_dump($_FILES['picture']['name']);
 
             $uploads_dir = 'images';
             $tmp_location = $_FILES['picture']['tmp_name'];
