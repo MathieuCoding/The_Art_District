@@ -81,7 +81,7 @@ require_once 'partials/header.php';
         <div class="card-header">
           <h4>Write a comment</h2>
         </div>
-        <form action="" method="post" class="col-md-6 offset-md-3 mt-5">
+        <form action="" method="post" id="commentForm" class="col-md-6 offset-md-3 mt-5">
           <div class="">
             <div class="mb-3">
               <label for="InputComment" class="form-label text-larger">Your comment</label>

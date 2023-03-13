@@ -1,6 +1,6 @@
 $(document).ready(function (){
     // console.log('bienvenue dans mon code jquery');
-    $('form').submit(function(event) {
+    $('#commentForm').submit(function(event) {
         // n'envoie pas les données, stop la propagation de l'évènement
         event.preventDefault();
         let comment = $('#InputComment').val();

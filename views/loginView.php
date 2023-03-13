@@ -22,5 +22,6 @@ require_once 'partials/header.php';
 
 
 <?php
+var_dump($_POST);
 require_once 'partials/footer.php';
 ?>
