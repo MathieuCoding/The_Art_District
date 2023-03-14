@@ -5,6 +5,7 @@ $(document).ready(function (){
         event.preventDefault();
         let comment = $('#InputComment').val();
         let userPseudo = $('#pseudo').val();
+        // date not used
         let date = new Date;
         // console.log(comment);
         $.post('', { comment: comment });
