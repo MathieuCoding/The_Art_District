@@ -1,3 +1,4 @@
+// Comments in ajax
 $(document).ready(function (){
     // console.log('bienvenue dans mon code jquery');
     $('#commentForm').submit(function(event) {
