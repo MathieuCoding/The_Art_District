@@ -58,12 +58,6 @@
 }
 
 
-/* Set min content size to keep the footer down */
-/* .min-size 
-{
-  min-height: 70vh;
-}  */
-
 .allButFooter 
 {
   min-height: calc(100vh - 295px);
