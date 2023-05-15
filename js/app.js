@@ -1,7 +1,7 @@
 // Comments in ajax
 $(document).ready(function (){
     $('#commentForm').submit(function(event) {
-        // n'envoie pas les données, stop la propagation de l'évènement
+        // method cancels the event if it is cancelable, meaning that the default action that belongs to the event will not occur.
         event.preventDefault();
         let comment = $('#InputComment').val();
         let userPseudo = $('#pseudo').val();
