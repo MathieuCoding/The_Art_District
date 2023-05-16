@@ -1,16 +1,15 @@
 // Comments in ajax
 $(document).ready(function (){
     $('#commentForm').submit(function(event) {
-        // method cancels the event if it is cancelable, meaning that the default action that belongs to the event will not occur.
+        // method that cancels the event if it is cancelable, meaning that the default action that belongs to the event will not occur.
         event.preventDefault();
         let comment = $('#InputComment').val();
         let userPseudo = $('#pseudo').val();
         // date not used
         let date = new Date;
-        // console.log(comment);
         $.post('', { comment: comment });
         $('<div><p>' + comment + '</p><footer class="blockquote-footer">Written by<cite title="Source Title"> ' + userPseudo + '</cite></footer></div>').prependTo('#comments');
-        //On vide le champ de commentaire
+        //Empty the comments field
         $('#InputComment').val('');
 
     }) 
