@@ -1,24 +1,3 @@
-/* Index Carousel settings*/
-
-  /* #carouselExampleAutoplaying {
-    width: 100%;
-    margin: 0px;
-  } */
-
-  .carousel-item img
-  {
-    width: auto;
-    height: 50vh;
-    margin: 20px auto 0;
-
-  }
-
-/*, .carousel-indicators */ 
-   /* .carousel-control-next, .carousel-control-prev {
-    filter: invert(100%);
-} */
- 
-
 /* Single view custom*/
 .card-img-top 
 {
