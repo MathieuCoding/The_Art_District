@@ -6,11 +6,10 @@ $(document).ready(function (){
         let comment = $('#InputComment').val();
         let userPseudo = $('#pseudo').val();
         // date not used
-        let date = new Date;
+        // let date = new Date;
         $.post('', { comment: comment });
         $('<div><p>' + comment + '</p><footer class="blockquote-footer">Written by<cite title="Source Title"> ' + userPseudo + '</cite></footer></div>').prependTo('#comments');
         //Empty the comments field
         $('#InputComment').val('');
-
     }) 
 })
