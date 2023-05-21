@@ -10,6 +10,7 @@ $(document).ready(function (){
         // date not used TO USE
         // let date = new Date;
         $.post('', { comment: comment });
+        // Insert new comment at the beginning of the #comments
         $('<div><p>' + comment + '</p><footer class="blockquote-footer">Written by<cite title="Source Title"> ' + userPseudo + '</cite></footer></div>').prependTo('#comments');
         //Empty the comments field
         $('#InputComment').val('');
