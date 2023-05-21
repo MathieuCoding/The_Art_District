@@ -5,6 +5,7 @@ $(document).ready(function (){
         event.preventDefault();
         // store de comment's value in a variable
         let comment = $('#InputComment').val();
+        // store de username's value in a variable
         let userPseudo = $('#pseudo').val();
         // date not used TO USE
         // let date = new Date;
