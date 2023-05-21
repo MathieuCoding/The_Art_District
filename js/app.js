@@ -12,7 +12,7 @@ $(document).ready(function (){
         $.post('', { comment: comment });
         // Insert new comment at the beginning of the #comments section
         $('<div><p>' + comment + '</p><footer class="blockquote-footer">Written by<cite title="Source Title"> ' + userPseudo + '</cite></footer></div>').prependTo('#comments');
-        //Empty the comments field
+        //Empty the comment's field
         $('#InputComment').val('');
     }) 
 })
