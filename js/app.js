@@ -3,6 +3,7 @@ $(document).ready(function (){
     $('#commentForm').submit(function(event) {
         // method that cancels the event if it is cancelable, meaning that the default action that belongs to the event will not occur.
         event.preventDefault();
+        // store de comment's value in a variable
         let comment = $('#InputComment').val();
         let userPseudo = $('#pseudo').val();
         // date not used TO USE
