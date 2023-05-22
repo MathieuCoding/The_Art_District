@@ -9,6 +9,7 @@ $(document).ready(function (){
         let userPseudo = $('#pseudo').val();
         // date not used TO USE
         // let date = new Date;
+        // HTTP POST request request '' page and send comment data
         $.post('', { comment: comment });
         // Insert new comment at the beginning of the #comments section
         $('<div><p>' + comment + '</p><footer class="blockquote-footer">Written by<cite title="Source Title"> ' + userPseudo + '</cite></footer></div>').prependTo('#comments');
