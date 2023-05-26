@@ -1,4 +1,4 @@
-// Comments in ajax using jQuery
+// Comment section in ajax using jQuery
 $(document).ready(function (){
     $('#commentForm').submit(function(event) {
         // method that cancels the event if it is cancelable, meaning that the default action that belongs to the event will not occur.
