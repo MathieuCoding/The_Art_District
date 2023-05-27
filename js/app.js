@@ -1,7 +1,7 @@
 // Comment section in ajax using jQuery
 $(document).ready(function (){
     $('#commentForm').submit(function(event) {
-        // method that cancels the event if it is cancelable, meaning that the default action that belongs to the event will not occur.
+        // method that cancels the event if it is cancelable, meaning that the default action that belongs to the event will not occur
         event.preventDefault();
         // store de comment's value in a variable
         let comment = $('#InputComment').val();
