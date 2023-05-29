@@ -8,6 +8,7 @@ $(document).ready(function (){
         // store de username's value in a variable
         let userPseudo = $('#pseudo').val();
         // date not used in the comment section
+        
         // let date = new Date;
         // HTTP POST request request '' page and send comment data
         $.post('', { comment: comment });
