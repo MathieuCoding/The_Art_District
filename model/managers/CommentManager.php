@@ -17,18 +17,6 @@ class CommentManager
         return $comments;
     }
 
-    // public static function getCommentByPostId($id)
-    // {
-    //     $dbh = dbconnect();
-    //     $query = 'SELECT * FROM comment 
-    //               WHERE id_post = :id';
-    //     $stmt = $dbh->prepare($query);
-    //     $stmt->bindParam(':id', $id);
-    //     $stmt->execute();
-    //     $stmt->setFetchMode(PDO::FETCH_CLASS, 'Comment');
-    //     $comment = $stmt->fetch();
-    //     return $comment;
-    // }
     public static function getCommentsByPostId($id)
     {
         $dbh = dbconnect();
